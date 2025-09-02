@@ -95,6 +95,26 @@
 
     /* Footer */
     footer{border-top:1px solid var(--edge); padding:28px 0; color:var(--muted); text-align:center}
+
+    .resume-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #007bff, #00c6ff); /* Blue gradient */
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.resume-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #0096c7);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+}
+
   </style>
 </head>
 <body>
@@ -109,7 +129,8 @@
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a bu href="(https://freecodecamp.org/certification/fcc65c65cff-7f7a-428c-ac6f-67a532933672/responsive-web-design)" onclick="alert('Connect your online resume link here')">View Résumé</a>
+        <a href="https://freecodecamp.org/certification/fcc65c65cff-7f7a-428c-ac6f-67a532933672/responsive-web-design" target="_blank" class="resume-btn">📄 View Résumé</a>
+
       </nav>
       <button class="hamb" aria-label="Open menu" onclick="toggleMenu()">☰</button>
     </div>
@@ -121,7 +142,8 @@
       <a href="#projects" onclick="toggleMenu()" style="color:var(--txt); text-decoration:none">Projects</a>
       <a href="#about" onclick="toggleMenu()" style="color:var(--txt); text-decoration:none">About</a>
       <a href="#contact" onclick="toggleMenu()" style="color:var(--txt); text-decoration:none">Contact</a>
-      <a href="#resume" onclick="toggleMenu(); alert('Connect your online resume link here')" class="cta-btn" style="width:max-content">View Résumé</a>
+      <a href="https://freecodecamp.org/certification/fcc65c65cff-7f7a-428c-ac6f-67a532933672/responsive-web-design" target="_blank" class="resume-btn">📄 View Résumé</a>
+
     </div>
   </div>
 
