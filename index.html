@@ -10,183 +10,161 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0d12;         /* deep black-blue */
-      --card:#11141b;       /* card background */
-      --txt:#e7e9ee;        /* base text */
-      --muted:#aab1c3;      /* muted text */
-      --primary:#2a6cf7;    /* Proxima A3 blue */
-      --accent:#ff3ea5;     /* Proxima A3 pink */
-      --edge:#0b84ff1a;     /* subtle border */
+      --bg:#0b0d12;
+      --card:#11141b;
+      --txt:#e7e9ee;
+      --muted:#aab1c3;
+      --primary:#2a6cf7;
+      --accent:#ff3ea5;
+      --edge:#0b84ff1a;
     }
-    *{box-sizing:border-box}
+
+    *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
-      margin:0; font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color:var(--txt); background:radial-gradient(1200px 1200px at 10% 5%, #111525 0%, #0b0d12 50%, #07090f 100%);
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:var(--txt);
+      background:radial-gradient(1200px 1200px at 10% 5%, #111525 0%, #0b0d12 50%, #07090f 100%);
+      overflow-x:hidden;
+      width:100%;
     }
+    img{max-width:100%;height:auto;display:block;}
+
+    /* Wrapper */
+    .wrap {
+      width:100%;
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px;
+    }
+    @media (max-width:1100px){.wrap{max-width:100%}}
+    @media (max-width:768px){.wrap{padding:0 12px}}
+
     /* Header */
     .nav{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(10px);
-      background:linear-gradient(180deg, #0b0d12cc 0%, #0b0d12b3 60%, #0b0d1200 100%);
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(1.2) blur(10px);
+      background:linear-gradient(180deg,#0b0d12cc 0%,#0b0d12b3 60%,#0b0d1200 100%);
       border-bottom:1px solid var(--edge);
     }
-
-     html, body {
-     overflow-x: hidden;
-     width: 100%;
-    }
-    
-    .wrap {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-@media (max-width: 768px) {
-  .wrap {
-    padding: 0 12px;
-  }
-}
-    .nav-inner{display:flex; align-items:center; justify-content:space-between; min-height:70px}
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--txt)}
-    .logo{width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg, var(--primary), var(--accent)); display:grid; place-items:center; font-weight:700}
-    .brand span{font-weight:600; letter-spacing:.2px}
-    .menu{display:flex; gap:22px}
-    .menu a{color:var(--muted); text-decoration:none; font-weight:500}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:70px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--txt)}
+    .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;font-weight:700}
+    .brand span{font-weight:600;letter-spacing:.2px}
+    .menu{display:flex;gap:22px}
+    .menu a{color:var(--muted);text-decoration:none;font-weight:500}
     .menu a:hover{color:var(--txt)}
-    .cta-btn{padding:10px 14px; border-radius:12px; background:linear-gradient(135deg, var(--primary), var(--accent)); color:white; text-decoration:none; font-weight:600; box-shadow:0 10px 30px #2a6cf744}
+    .cta-btn{padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;text-decoration:none;font-weight:600;box-shadow:0 10px 30px #2a6cf744}
 
-    /* Mobile */
-    .hamb{display:none; cursor:pointer}
-    @media (max-width: 800px){
-      .menu{display:none}
-      .hamb{display:block}
-    }
+    .hamb{display:none;cursor:pointer}
+    @media(max-width:800px){.menu{display:none}.hamb{display:block}}
 
     /* Hero */
     .hero{padding:90px 0 40px}
-    .hero-inner{display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center}
-    .tag{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; border:1px solid var(--edge); color:var(--muted); font-size:14px}
-    .title{font-size:48px; line-height:1.1; margin:14px 0}
-    .title strong{background:linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent}
-    .lead{color:var(--muted); font-size:18px}
-    .hero-actions{display:flex; gap:12px; margin-top:22px}
-    .ghost{padding:10px 14px; border-radius:12px; border:1px solid var(--edge); text-decoration:none; color:var(--txt)}
-    .portrait{width:100%; aspect-ratio:1/1; border-radius:24px; background:linear-gradient(135deg,#1a2033,#0f1324); border:1px solid var(--edge); display:grid; place-items:center; overflow:hidden}
-    .portrait img{width:100%; height:100%; object-fit:cover; opacity:.95}
+    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+    .tag{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid var(--edge);color:var(--muted);font-size:14px}
+    .title{font-size:48px;line-height:1.1;margin:14px 0}
+    .title strong{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{color:var(--muted);font-size:18px}
+    .hero-actions{display:flex;gap:12px;margin-top:22px}
+    .ghost{padding:10px 14px;border-radius:12px;border:1px solid var(--edge);text-decoration:none;color:var(--txt)}
+    .portrait{width:100%;aspect-ratio:1/1;border-radius:24px;background:linear-gradient(135deg,#1a2033,#0f1324);border:1px solid var(--edge);display:grid;place-items:center;overflow:hidden}
+    .portrait img{width:100%;height:100%;object-fit:cover;opacity:.95}
 
-    @media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;   /* stack text and image vertically */
-    text-align: center;           /* center text for better mobile look */
-  }
-  .hero-actions {
-    justify-content: center;      /* center the buttons */
-  }
-  .portrait {
-    max-width: 320px;             /* make image smaller */
-    margin: 30px auto 0;          /* center image below text */
-  }
-}
-
-@media (max-width: 600px) {
-  .title {
-    font-size: 32px;              /* reduce text size */
-  }
-  .lead {
-    font-size: 16px;
-  }
-  .hero {
-    padding: 70px 0 30px;         /* reduce spacing for small screens */
-  }
-}
+    @media (max-width:900px){
+      .hero-inner{grid-template-columns:1fr;text-align:center}
+      .hero-actions{justify-content:center}
+      .portrait{max-width:320px;margin:30px auto 0}
+    }
+    @media (max-width:600px){
+      .title{font-size:32px}
+      .lead{font-size:16px}
+      .hero{padding:70px 0 30px}
+    }
 
     /* Section */
     section{padding:50px 0}
-    .section-h{display:flex; align-items:end; justify-content:space-between; margin-bottom:18px}
-    h2{margin:0; font-size:28px}
-    .sub{color:var(--muted); font-size:14px}
+    .section-h{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px}
+    h2{margin:0;font-size:28px}
+    .sub{color:var(--muted);font-size:14px}
 
     /* Projects */
-    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
-    @media (max-width: 900px){.hero-inner{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr}}
-    @media (max-width: 560px){.grid{grid-template-columns:1fr} .title{font-size:36px}}
-    .card{background:var(--card); border:1px solid var(--edge); border-radius:18px; overflow:hidden; display:flex; flex-direction:column}
-    .thumb{position:relative; width:100%; padding-top:60%; background:#0f1324}
-    .thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}.title{font-size:36px}}
+    .card{background:var(--card);border:1px solid var(--edge);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+    .thumb{position:relative;width:100%;padding-top:60%;background:#0f1324}
+    .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .c-body{padding:16px}
-    .c-title{font-weight:600; margin:0 0 6px}
-    .c-desc{color:var(--muted); font-size:14px; margin:0 0 10px}
-    .links{display:flex; gap:10px; margin-top:auto; padding:0 16px 16px}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; border:1px solid var(--edge); color:var(--txt); text-decoration:none; font-weight:500}
-    .btn.primary{background:linear-gradient(135deg, var(--primary), var(--accent)); border:none; color:#fff}
+    .c-title{font-weight:600;margin:0 0 6px}
+    .c-desc{color:var(--muted);font-size:14px;margin:0 0 10px}
+    .links{display:flex;gap:10px;margin-top:auto;padding:0 16px 16px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;border:1px solid var(--edge);color:var(--txt);text-decoration:none;font-weight:500}
+    .btn.primary{background:linear-gradient(135deg,var(--primary),var(--accent));border:none;color:#fff}
 
     /* About */
-    .about{display:grid; grid-template-columns:1fr 1.3fr; gap:24px}
-    @media (max-width: 900px){.about{grid-template-columns:1fr}}
-    .about .chipset{display:flex; flex-wrap:wrap; gap:10px}
-    .chip{padding:6px 10px; border:1px solid var(--edge); border-radius:999px; color:var(--muted); font-size:13px}
+    .about{display:grid;grid-template-columns:1fr 1.3fr;gap:24px}
+    @media(max-width:900px){.about{grid-template-columns:1fr}}
+    .about .chipset{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:6px 10px;border:1px solid var(--edge);border-radius:999px;color:var(--muted);font-size:13px}
 
     /* Contact */
-    .contact-wrap{display:grid; grid-template-columns:1.2fr .8fr; gap:24px}
-    @media (max-width: 900px){.contact-wrap{grid-template-columns:1fr}}
-    form{display:grid; gap:10px}
-    input, textarea{background:#0e1222; border:1px solid var(--edge); color:var(--txt); border-radius:12px; padding:12px 14px; font:inherit}
-    textarea{min-height:140px; resize:vertical}
-    .small{font-size:12px; color:var(--muted)}
+    .contact-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    @media(max-width:900px){.contact-wrap{grid-template-columns:1fr}}
+    form{display:grid;gap:10px}
+    input,textarea{background:#0e1222;border:1px solid var(--edge);color:var(--txt);border-radius:12px;padding:12px 14px;font:inherit}
+    textarea{min-height:140px;resize:vertical}
+    .small{font-size:12px;color:var(--muted)}
 
     /* Footer */
-    footer{border-top:1px solid var(--edge); padding:28px 0; color:var(--muted); text-align:center}
+    footer{border-top:1px solid var(--edge);padding:28px 0;color:var(--muted);text-align:center}
 
-    .resume-btn {
-  display: inline-block;
-  background: linear-gradient(135deg, #007bff, #00c6ff); /* Blue gradient */
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 12px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
-  transition: all 0.3s ease-in-out;
-}
-
-.resume-btn:hover {
-  background: linear-gradient(135deg, #0056b3, #0096c7);
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
-}
-
+    /* Resume Button */
+    .resume-btn{
+      display:inline-block;
+      background:linear-gradient(135deg,#007bff,#00c6ff);
+      color:white;
+      font-weight:bold;
+      font-size:1rem;
+      padding:12px 24px;
+      border-radius:50px;
+      text-decoration:none;
+      box-shadow:0 4px 15px rgba(0,123,255,0.4);
+      transition:all 0.3s ease-in-out;
+    }
+    .resume-btn:hover{
+      background:linear-gradient(135deg,#0056b3,#0096c7);
+      transform:scale(1.05);
+      box-shadow:0 6px 20px rgba(0,123,255,0.6);
+    }
   </style>
 </head>
 <body>
   <!-- NAVBAR -->
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="#home" aria-label="Go to home">
+      <a class="brand" href="#home">
         <div class="logo">AA</div>
         <span>Aregbe Adekunle</span>
       </a>
-      <nav class="menu" aria-label="Primary">
+      <nav class="menu">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="https://freecodecamp.org/certification/fcc65c65cff-7f7a-428c-ac6f-67a532933672/responsive-web-design" target="_blank" class="resume-btn">📄 View Résumé</a>
-
       </nav>
-      <button class="hamb" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+      <button class="hamb" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
-  <!-- MOBILE DRAWER -->
-  <div id="drawer" style="position:fixed; inset:0; width:100%; height:0; background:#0b0d12f0; backdrop-filter:blur(6px); transition:height .3s ease; overflow:hidden; z-index:40; border-bottom:1px solid var(--edge)">
-    <div class="wrap" style="padding:16px 20px 24px; display:grid; gap:14px">
-      <a href="#projects" onclick="toggleMenu()" style="color:var(--txt); text-decoration:none">Projects</a>
-      <a href="#about" onclick="toggleMenu()" style="color:var(--txt); text-decoration:none">About</a>
-      <a href="#contact" onclick="toggleMenu()" style="color:var(--txt); text-decoration:none">Contact</a>
+  <!-- MOBILE MENU -->
+  <div id="drawer" style="position:fixed;inset:0;width:100%;height:0;background:#0b0d12f0;backdrop-filter:blur(6px);transition:height .3s ease;overflow:hidden;z-index:40;border-bottom:1px solid var(--edge)">
+    <div class="wrap" style="padding:16px 20px 24px;display:grid;gap:14px">
+      <a href="#projects" onclick="toggleMenu()" style="color:var(--txt);text-decoration:none">Projects</a>
+      <a href="#about" onclick="toggleMenu()" style="color:var(--txt);text-decoration:none">About</a>
+      <a href="#contact" onclick="toggleMenu()" style="color:var(--txt);text-decoration:none">Contact</a>
       <a href="https://freecodecamp.org/certification/fcc65c65cff-7f7a-428c-ac6f-67a532933672/responsive-web-design" target="_blank" class="resume-btn">📄 View Résumé</a>
-
     </div>
   </div>
 
@@ -195,17 +173,14 @@
     <div class="wrap hero-inner">
       <div>
         <span class="tag">👋 Hi, I’m <strong style="color:#fff">Aregbe</strong></span>
-        <h1 class="title">Web & Graphics Designer
-          <br>building <strong>clean, modern</strong> experiences.</h1>
+        <h1 class="title">Web & Graphics Designer<br>building <strong>clean, modern</strong> experiences.</h1>
         <p class="lead">I design and develop responsive websites and brand visuals. I love turning ideas into user-friendly products with beautiful UI.</p>
         <div class="hero-actions">
           <a class="cta-btn" href="#projects">See Projects</a>
           <a class="ghost" href="#contact">Hire Me</a>
         </div>
       </div>
-      <div class="portrait" aria-hidden="true">
-        <img src="ayat.jpg" alt="Developer at a desk" />
-      </div>
+      <div class="portrait"><img src="ayat.jpg" alt="Developer portrait"></div>
     </div>
   </main>
 
@@ -213,42 +188,34 @@
   <section id="projects">
     <div class="wrap">
       <div class="section-h">
-        <h2>Projects</h2>
-        <span class="sub">A selection of recent work</span>
+        <h2>Projects</h2><span class="sub">A selection of recent work</span>
       </div>
       <div class="grid">
-        <!-- Project 1 -->
         <article class="card">
           <div class="thumb"><img src="ayat3.jpg" alt="Project 1 preview"></div>
           <div class="c-body">
             <h3 class="c-title">Plastic Souvenirs Store</h3>
-            <p class="c-desc">E‑commerce for More Grace & Blessing Nigeria Enterprise with Paystack, cart, and dashboard.</p>
+            <p class="c-desc">E-commerce for More Grace & Blessing Nigeria Enterprise with Paystack, cart, and dashboard.</p>
           </div>
-          <div class="links">
-            <a class="btn primary" href="https://stoner1238.github.io/MGB-Plastic_Store/">Live Site</a>
-          </div>
+          <div class="links"><a class="btn primary" href="https://stoner1238.github.io/MGB-Plastic_Store/">Live Site</a></div>
         </article>
-        <!-- Project 2 -->
+
         <article class="card">
           <div class="thumb"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop" alt="Project 2 preview"></div>
           <div class="c-body">
             <h3 class="c-title">Proxima A3 Portfolio</h3>
             <p class="c-desc">Personal portfolio with contact form and smooth scrolling.</p>
           </div>
-          <div class="links">
-            <a class="btn primary" href="#">Live Site</a>
-          </div>
+          <div class="links"><a class="btn primary" href="#">Live Site</a></div>
         </article>
-        <!-- Project 3 -->
+
         <article class="card">
           <div class="thumb"><img src="ayat4.jpg" alt="Project 3 preview"></div>
           <div class="c-body">
             <h3 class="c-title">Range Rover Specialist</h3>
-            <p class="c-desc">a specialist Range Rover mechanical & electrical technician based in Lagos, using advanced diagnostic and programming tools including the Autel IM608 Pro II and PLUTO JLR Engineering Tool.</p>
+            <p class="c-desc">Specialist Range Rover technician in Lagos using Autel IM608 Pro II and PLUTO JLR tools.</p>
           </div>
-          <div class="links">
-            <a class="btn primary"href="https://stoner1238.github.io/RangeRover_specialist/">Live Demo</a>
-          </div>
+          <div class="links"><a class="btn primary" href="https://stoner1238.github.io/RangeRover_specialist/">Live Demo</a></div>
         </article>
       </div>
     </div>
@@ -257,25 +224,14 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="wrap">
-      <div class="section-h">
-        <h2>About</h2>
-        <span class="sub">Who I am & what I do</span>
-      </div>
+      <div class="section-h"><h2>About</h2><span class="sub">Who I am & what I do</span></div>
       <div class="about">
-        <div class="portrait" style="aspect-ratio:4/3">
-          <img src="ayat2.jpg" alt="Aregbe portrait placeholder">
-        </div>
+        <div class="portrait" style="aspect-ratio:4/3"><img src="ayat2.jpg" alt="Aregbe portrait"></div>
         <div>
-          <p>My name is <strong>Aregbe Ayatulah Adekunle</strong>. I’m a web & graphics designer based in Lagos, Nigeria. I focus on building responsive, accessible, and visually appealing websites. I enjoy taking on challenging projects that push me to learn and deliver business value.</p>
+          <p>My name is <strong>Aregbe Ayatulah Adekunle</strong>. I’m a web & graphics designer based in Lagos, Nigeria. I focus on building responsive, accessible, and visually appealing websites that deliver business value.</p>
           <p>When I’m not working, I create educational worksheets and automation tools. I also share daily UI/UX styled quotes.</p>
-          <div class="chipset" aria-label="Tech stack">
-            <span class="chip">HTML</span>
-            <span class="chip">CSS</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">Tailwind</span>
-            <span class="chip">Figma</span>
-            <span class="chip">Flask</span>
-            <span class="chip">Paystack</span>
+          <div class="chipset">
+            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Tailwind</span><span class="chip">Figma</span><span class="chip">Flask</span><span class="chip">Paystack</span>
           </div>
         </div>
       </div>
@@ -285,26 +241,20 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
-      <div class="section-h">
-        <h2>Contact</h2>
-        <span class="sub">Let’s build something great</span>
-      </div>
+      <div class="section-h"><h2>Contact</h2><span class="sub">Let’s build something great</span></div>
       <div class="contact-wrap">
-        <form onsubmit="event.preventDefault(); alert('Connect to Formspree or backend to send messages.');">
+        <form onsubmit="event.preventDefault();alert('Connect to Formspree or backend to send messages.');">
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="email" name="email" placeholder="Your Email" required>
           <textarea name="message" placeholder="Your Message" required></textarea>
           <button class="cta-btn" type="submit">Send Message</button>
-          <span class="small">This demo form doesn’t send yet. I’ll wire it to Formspree/EmailJS or your backend.</span>
+          <span class="small">This demo form doesn’t send yet. I’ll wire it to Formspree or EmailJS later.</span>
         </form>
         <div>
           <h3 style="margin-top:0">Reach me</h3>
-          <p class="small">Phone</p>
-          <p>+234 708 279 8562</p>
-          <p class="small">Email</p>
-          <p><a href="mailto:aregbeadekunle@gmail.com" style="color:var(--txt)">aregbeadekunle@gmail.com</a></p>
-          <p class="small">Location</p>
-          <p>Lagos, Nigeria</p>
+          <p class="small">Phone</p><p>+234 708 279 8562</p>
+          <p class="small">Email</p><p><a href="mailto:aregbeadekunle@gmail.com" style="color:var(--txt)">aregbeadekunle@gmail.com</a></p>
+          <p class="small">Location</p><p>Lagos, Nigeria</p>
           <p class="small">Around the web</p>
           <p>
             <a class="btn" href="https://instagram.com/proximaa3graphics">Instagram</a>
@@ -317,19 +267,14 @@
     </div>
   </section>
 
-  <footer>
-    <div class="wrap">© <span id="year"></span> Aregbe Ayatulah Adekunle — All rights reserved.</div>
-  </footer>
+  <footer><div class="wrap">© <span id="year"></span> Aregbe Ayatulah Adekunle — All rights reserved.</div></footer>
 
   <script>
     function toggleMenu(){
-      const d = document.getElementById('drawer');
-      d.style.height = d.style.height && d.style.height !== '0px' ? '0' : '220px';
+      const d=document.getElementById('drawer');
+      d.style.height=(d.style.height&&d.style.height!=='0px')?'0':'220px';
     }
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent=new Date().getFullYear();
   </script>
 </body>
-</html>
-
-
-
+                               </html>
